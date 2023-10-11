@@ -1,6 +1,6 @@
 {
   "name": "simple-directory-observer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Observes a list of directories for file changes; If a certain threshold is breached, sends an email with a configurable Snooze",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

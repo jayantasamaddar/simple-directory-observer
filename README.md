@@ -56,7 +56,8 @@ EMAIL_USER=jayanta@zenius.one       # Email of the user on behalf of which the e
 EMAIL_PASSWORD=xxxxxxxxxxxxxx       # Password of the above user
 EMAIL_HOST="smtppro.zoho.in"        # SMTP config settings. E.g. https://www.zoho.com/mail/help/zoho-smtp.html
 EMAIL_PORT=465                      # SMTP config settings. E.g. https://www.zoho.com/mail/help/zoho-smtp.html
-EMAIL_SENDER="Jayanta Samaddar"     # Sender name that will show on the email clients
+EMAIL_SENDER="Jayanta Samaddar"     # Sender name that will show up on the email clients
+EMAIL_RECEIVER="Team Jayanta"       # Receiver name that will show up on the email clients
 EMAIL_FROM="hello@zenius.one"       # From address
 EMAIL_TO="jayanta@zenius.one"       # To Address
 DIRPATH_OPTIONS="/Users/jayanta/test=5,/Users/jayanta/test2=6"  # Directory config in the format DIRPATH_OPTIONS=[PATH]=[THRESHOLD],[PATH2]=[THRESHOLD2]

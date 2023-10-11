@@ -72,9 +72,9 @@ type FileEvent = "create" | "delete";
       if (counter >= threshold) {
         log("info", `Reached file count, ${counter}. Sending Email...`);
         await sendEmail({
-          senderName: "Jayanta S",
-          name: "Jayanta Samaddar",
-          to: "jayanta@zenius.one",
+          senderName: process.env.EMAIL_SENDER || "Simple Directory Observer",
+          name: process.env.EMAIL_SENDER || "Simple Directory Observer",
+          to: process.env.EMAIL_TO,
           message: `${counter} files have now accumulated at the directory at "${dirPath}"! Requesting you to take action.`,
           subject: `ALERT: ${counter} files have now accumulated at the directory at "${dirPath}"!`,
         });
@@ -128,9 +128,9 @@ type FileEvent = "create" | "delete";
           // While watching files in the directory, if the number of files added exceeds the
           log("info", `Reached file count, ${counter}. Sending Email...`);
           await sendEmail({
-            senderName: "Jayanta S",
-            name: "Jayanta Samaddar",
-            to: "jayanta@zenius.one",
+            senderName: process.env.EMAIL_SENDER || "Simple Directory Observer",
+            name: process.env.EMAIL_RECEIVER || "Recepient",
+            to: process.env.EMAIL_TO,
             message: `${counter} files have now accumulated at the directory at "${dirPath}"! Requesting you to take action.`,
             subject: `ALERT: ${counter} files have now accumulated at the directory at "${dirPath}"!`,
           });

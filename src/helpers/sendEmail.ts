@@ -4,14 +4,18 @@ import { log } from "./logger";
 dotenv.config({ path: process.env.ENVPATH });
 
 export interface EmailProps {
+  // Receipient's Name
   name: string;
+  // Sender's Name
   senderName?: string;
+  // Sender's Email Address
   from?: string;
+  // Receiver's Email Address
   to?: string;
+  // The Message
   message: string;
+  // The Email Subject
   subject: string;
-  host?: string;
-  port?: number;
 }
 
 export const sendEmail = async ({
@@ -19,14 +23,12 @@ export const sendEmail = async ({
   senderName = process.env.EMAIL_SENDER,
   message,
   subject = "ALERT: Directory overload!",
-  host = process.env.EMAIL_HOST,
-  port = Number(process.env.EMAIL_PORT),
   from = process.env.EMAIL_FROM,
   to = process.env.EMAIL_TO,
 }: EmailProps) => {
   const transporter = nodemailer.createTransport({
-    host,
-    port,
+    host: process.env.EMAIL_HOST,
+    port: Number(process.env.EMAIL_PORT),
     secure: true,
     auth: {
       user: process.env.EMAIL_USER,
