@@ -1,0 +1,8 @@
+node_modules
+dist
+kubernetes
+.env.example
+Dockerfile*
+*.md
+!README*.md
+logs

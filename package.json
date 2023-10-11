@@ -1,0 +1,55 @@
+{
+  "name": "simple-directory-observer",
+  "version": "0.1.0",
+  "description": "Observes a list of directories for file changes; If a certain threshold is breached, sends an email with a configurable Snooze",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "repository": "https://github.com/jayantasamaddar/simple-directory-observer.git",
+  "bugs": "https://github.com/jayantasamaddar/simple-directory-observer/issues",
+  "keywords": [
+    "watcher",
+    "observer-pattern",
+    "nodemailer",
+    "nodejs",
+    "smtp"
+  ],
+  "author": "Jayanta Samaddar <jayanta.samaddar@encora.com>",
+  "license": "ISC",
+  "scripts": {
+    "dev": "export NODE_ENV=development && export ENVPATH=.env && nodemon src/index.ts",
+    "start": "export NODE_ENV=production && export ENVPATH=.env && node dist/cjs/index.js",
+    "build": "pnpm build:js && pnpm build:types",
+    "build:js": "echo '\\033[32m Building modules... \\033[m' && rollup -c",
+    "build:types": "echo -e '\\033[32m Building types... \\033[m' && tsc --declarationDir dist/types --declaration --emitDeclarationOnly",
+    "build:start": "pnpm build && pnpm start",
+    "clean": "rm -rf dist .rollup.cache",
+    "clean:cache": "rm -rf .cache .rollup.cache",
+    "clean:images": "docker rmi simple-directory-observer",
+    "clean:logs": "rm -f /tmp/simple-directory-observer/logs.json",
+    "clean:all": "rm -rf dist node_modules .rollup.cache && pnpm clean:images && pnpm clean:logs",
+    "ts-check": "tsc --noemit"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.5",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/node": "^20.8.4",
+    "@types/nodemailer": "^6.4.11",
+    "@types/yargs": "^17.0.28",
+    "nodemon": "^3.0.1",
+    "rollup": "^4.0.2",
+    "rollup-plugin-node-externals": "^6.1.2",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "nodemailer": "^6.9.6"
+  }
+}
